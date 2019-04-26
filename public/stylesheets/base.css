@@ -1,0 +1,11 @@
+.one_fourth.remove_bottom.logo {
+  width: 10%;
+}
+
+.input-grp div {
+  display: flex;
+}
+
+.input-grp label {
+  font-weight: 500;
+}

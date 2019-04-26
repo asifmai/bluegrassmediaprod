@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include partials/commonhead %>
+</head>
+<body>
+  <% include partials/header %>
+  
+  <!-- Page Body Starts -->
+	<section class="full video" id="home">
+	
+		<h1 class="mega">Welcome Traveller.<br />We are Tides.</h1>
+		<a class="button white light scroller" href="#portfolio">View More</a>
+		<a class="mute muted" href="#"><i class="fa fa-volume-up"></i></a>
+	
+	</section>
+	
+	<section class="small-padding" id="portfolio">
+	
+		<div class="wrapper">
+			<h3 class="floatleft">Portfolio <small class="portfolio-filter">We're really proud.</small></h3>
+				
+			<div id="filters" class="floatright">
+				<a href="*" class="active button">All</a>
+				<a href=".web-design" class="button">Web Design</a>
+				<a href=".development" class="button">Development</a>
+				<a href=".illustration" class="button">Illustration</a>
+				<a href=".business" class="button">Business</a>
+			</div>
+			
+			<div class="clear"></div><!--CLEAR FLOATS-->
+		</div>
+		
+	</section>
+	
+	<section class="dark-wrapper">
+	
+		<div class="wrapper overflow-hidden">
+		
+		<div id="loader"></div>
+			
+			<ul class="clearfix portfolio-isotope portfolio scroll-animate bottom">
+							
+				<li class="web-design illustration">
+					<a href="single-portfolio.html" class="isotope-alt-image">
+						<img src="/images/i1.jpg" alt="image" />
+						<div>
+							<h4>Project title<small>Web Design, Development</small></h4>
+						</div>
+					</a>
+					<div class="isotope-alt-details">
+						<div>
+							<h4 class="remove-bottom">Project title</h4>
+							<p class="meta">Web Design, Development</p>
+						</div>
+					</div>
+				</li>
+				
+				<li class="development business">
+					<a href="single-portfolio.html" class="isotope-alt-image">
+						<img src="/images/i2.jpg" alt="image" />
+						<div>
+							<h4>Project title<small>Web Design, Development</small></h4>
+						</div>
+					</a>
+					<div class="isotope-alt-details">
+						<div>
+							<h4 class="remove-bottom">Project title</h4>
+							<p class="meta">Web Design, Development</p>
+						</div>
+					</div>
+				</li>
+				<li class="web-design development">
+					<a href="single-portfolio.html" class="isotope-alt-image">
+						<img src="/images/i3.jpg" alt="image" />
+						<div>
+							<h4>Project title<small>Web Design, Development</small></h4>
+						</div>
+					</a>
+					<div class="isotope-alt-details">
+						<div>
+							<h4 class="remove-bottom">Project title</h4>
+							<p class="meta">Web Design, Development</p>
+						</div>
+					</div>
+				</li>
+				<li class="illustration business">
+					<a href="single-portfolio.html" class="isotope-alt-image">
+						<img src="/images/i4.jpg" alt="image" />
+						<div>
+							<h4>Project title<small>Web Design, Development</small></h4>
+						</div>
+					</a>
+					<div class="isotope-alt-details">
+						<div>
+							<h4 class="remove-bottom">Project title</h4>
+							<p class="meta">Web Design, Development</p>
+						</div>
+					</div>
+				</li>
+				<li class="illustration development">
+					<a href="single-portfolio.html" class="isotope-alt-image">
+						<img src="/images/i5.jpg" alt="image" />
+						<div>
+							<h4>Project title<small>Web Design, Development</small></h4>
+						</div>
+					</a>
+					<div class="isotope-alt-details">
+						<div>
+							<h4 class="remove-bottom">Project title</h4>
+							<p class="meta">Web Design, Development</p>
+						</div>
+					</div>
+				</li>
+				<li class="web-design business">
+					<a href="single-portfolio.html" class="isotope-alt-image">
+						<img src="/images/i6.jpg" alt="image" />
+						<div>
+							<h4>Project title<small>Web Design, Development</small></h4>
+						</div>
+					</a>
+					<div class="isotope-alt-details">
+						<div>
+							<h4 class="remove-bottom">Project title</h4>
+							<p class="meta">Web Design, Development</p>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+			
+			<a href="more-posts.html" id="load-more" class="scroll-animate top">Load More</a>
+			
+		</div>
+		
+	</section>
+	
+	
+	<section class="small-padding" id="contact">
+			
+		<div class="wrapper">
+			<h3 class="floatleft">Contact Us. <small>We're ready for your call.</small></h3>
+			
+			<div class="clear"></div><!--CLEAR FLOATS-->
+		</div>
+		
+	</section>
+	
+	<section class="dark-wrapper">
+	
+		<div class="wrapper clearfix">
+			
+			<div class="two_thirds scroll-animate left">
+				<div id="message"></div>
+				<form method="POST" action="/contactus" id="contactform">
+					<div class="input-grp">
+						<label for="name">Name</label>
+						<input type="text" name="name" id="name"/>
+					</div>
+					<div class="input-grp">
+						<label for="phone">Phone Number</label>
+						<input type="text" name="phone" id="phone" />
+					</div>
+					<div class="input-grp">
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email"/>
+					</div>
+					<div class="input-grp">
+						<label for="methodofcontact">Preferred Method of Contact</label>
+						<select name="methodofcontact" id="methodofcontact">
+							<option value="email">By Email</option>
+							<option value="phone">By Phone</option>
+						</select>
+					</div>
+					<div class="input-grp">
+						<label for="timeofcontact">Preferred Date and Time of Contact</label>
+						<div>
+							<input type="date" name="date" id="date" class="mr-2"/>
+							<input type="time" name="time" id="time" />
+						</div>
+					</div>
+					<div class="input-grp">
+						<label for="howcanwehelpyou">How Can We Help You</label>
+						<select name="howcanwehelpyou" id="howcanwehelpyou">
+							<option value="">Option 1</option>
+							<option value="">Option 2</option>
+							<option value="">Option 3</option>
+							<option value="">Option 4</option>
+							<option value="">Option 5</option>
+						</select>
+					</div>
+					<div class="input-grp">
+						<label for="comments">Comments</label>
+						<textarea name="comments" id="comments" ></textarea>
+					</div>
+					<input type="submit" name="submit" value="Submit" />
+				</form>
+			</div>
+			
+			<div class="one_third last scroll-animate right">
+				<h5>Contact Us</h5>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar.</p>
+				<p class="margin-bottom-10"><i class="fa fa-map-marker fa-fixed-width"></i> York, England</p>
+				<p class="margin-bottom-10"><i class="fa fa-phone-square fa-fixed-width"></i> +00 (123) 456 78 90</p>
+				<p class="margin-bottom-10"><i class="fa fa-laptop fa-fixed-width"></i> <a href="first.last@email.com">first.last@email.com</a></p>
+			</div>
+			
+		</div>
+		
+	</section>
+
+  <!-- Page Body Ends -->
+  <% include partials/footer %>
+  <% include partials/commonscripts %>
+  <script src="/javascripts/index.js"></script>
+</body>
+</html>

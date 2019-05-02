@@ -155,19 +155,19 @@
 				<form method="POST" action="/contactus" id="contactform">
 					<div class="input-grp">
 						<label for="name">Name</label>
-						<input type="text" name="name" id="name"/>
+						<input type="text" name="name" id="name" class="form-control"/>
 					</div>
 					<div class="input-grp">
 						<label for="phone">Phone Number</label>
-						<input type="text" name="phone" id="phone" />
+						<input type="text" name="phone" id="phone" class="form-control"/>
 					</div>
 					<div class="input-grp">
 						<label for="email">Email</label>
-						<input type="email" name="email" id="email"/>
+						<input type="email" name="email" id="email" class="form-control"/>
 					</div>
 					<div class="input-grp">
 						<label for="methodofcontact">Preferred Method of Contact</label>
-						<select name="methodofcontact" id="methodofcontact">
+						<select name="methodofcontact" id="methodofcontact" class="form-control">
 							<option value="email">By Email</option>
 							<option value="phone">By Phone</option>
 						</select>
@@ -175,13 +175,13 @@
 					<div class="input-grp">
 						<label for="timeofcontact">Preferred Date and Time of Contact</label>
 						<div>
-							<input type="date" name="date" id="date" class="mr-2"/>
-							<input type="time" name="time" id="time" />
+							<input type="date" name="date" id="date" class="mr-2 form-control"/>
+							<input type="time" name="time" id="time" class="form-control"/>
 						</div>
 					</div>
 					<div class="input-grp">
 						<label for="howcanwehelpyou">How Can We Help You</label>
-						<select name="howcanwehelpyou" id="howcanwehelpyou">
+						<select name="howcanwehelpyou" id="howcanwehelpyou" class="form-control">
 							<option value="">Option 1</option>
 							<option value="">Option 2</option>
 							<option value="">Option 3</option>
@@ -191,7 +191,7 @@
 					</div>
 					<div class="input-grp">
 						<label for="comments">Comments</label>
-						<textarea name="comments" id="comments" ></textarea>
+						<textarea name="comments" id="comments" class="form-control"></textarea>
 					</div>
 					<input type="submit" name="submit" value="Submit" />
 				</form>

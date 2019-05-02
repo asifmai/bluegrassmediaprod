@@ -111,7 +111,7 @@ jQuery(document).ready(function($){
 		
 		$('#selectnav .scroller').each(function(){
 			var scrollHref = $(this).attr('href');
-			if( $(window).scrollTop() > $(this).offset().top - 240 ) {
+			if( $(window).scrollTop() > $(scrollHref).offset().top - 240 ) {
 				$('#selectnav .scroller').removeClass('active');
 				$(this).addClass('active');
 			}

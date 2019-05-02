@@ -2,9 +2,9 @@ $(function() {
   var BV = new $.BigVideo({useFlashForFirefox:false});
 BV.init();
 if ((/iPhone|iPod|iPad|Android|BlackBerry/).test(navigator.userAgent)) {
-  BV.show('img/cover.png');
+  BV.show('/images/bluegrassmediavideocover.jpg');
 } else {
-  BV.show('http://video-js.zencoder.com/oceans-clip.mp4',{
+  BV.show('/videos/bluegrassmedia.mp4',{
     altSource:'http://video-js.zencoder.com/oceans-clip.ogv'
   });
 }

@@ -8,4 +8,9 @@
 
 .input-grp label {
   font-weight: 500;
+  color: rgb(65, 65, 65);
+}
+
+input:focus, select:focus, textarea:focus {
+  box-shadow: none !important;
 }

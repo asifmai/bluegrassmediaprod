@@ -14,3 +14,31 @@
 input:focus, select:focus, textarea:focus {
   box-shadow: none !important;
 }
+
+.parsley-errors-list.filled{
+  list-style: none;
+  padding-left: 0.5em;
+  font-size: 0.8em;
+  margin-bottom: 0;
+  color: #FF3547;
+}
+
+.parsley-errors-list.filled li {
+  text-align: left;
+    font-weight: bold;
+}
+
+
+.alert {
+  margin: 0;
+  padding: 0.1em;
+  font-size: 0.8em;
+  font-weight: bold;
+  background: transparent;
+  text-align: center;
+}
+
+.alert .close {
+  font-size: 1.5em;
+    padding: 0.3em;
+}

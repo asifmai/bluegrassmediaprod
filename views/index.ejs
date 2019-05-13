@@ -10,7 +10,11 @@
   <!-- Page Body Starts -->
 	<section class="full video" id="home">
 	
-		<h1 class="mega">Welcome Traveller.<br />We are Tides.</h1>
+		<h1 class="mega">
+			<%= staticcontent.headerline1 %>
+			<br />
+			<%= staticcontent.headerline2 %>
+		</h1>
 		<a class="button white light scroller" href="#portfolio">View More</a>
 		<a class="mute muted" href="#"><i class="fa fa-volume-up"></i></a>
 	
@@ -140,7 +144,7 @@
 	<section class="small-padding" id="contact">
 			
 		<div class="wrapper">
-			<h3 class="floatleft">Contact Us. <small>We're ready for your call.</small></h3>
+			<h3 class="floatleft">Contact Us. <small><%= staticcontent.contactheader %></small></h3>
 			
 			<div class="clear"></div><!--CLEAR FLOATS-->
 		</div>
@@ -200,10 +204,10 @@
 			
 			<div class="one_third last scroll-animate right">
 				<h5>Contact Us</h5>
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar.</p>
-				<p class="margin-bottom-10"><i class="fa fa-map-marker fa-fixed-width"></i> York, England</p>
-				<p class="margin-bottom-10"><i class="fa fa-phone-square fa-fixed-width"></i> +00 (123) 456 78 90</p>
-				<p class="margin-bottom-10"><i class="fa fa-laptop fa-fixed-width"></i> <a href="first.last@email.com">first.last@email.com</a></p>
+				<p><%= staticcontent.contacttext %></p>
+				<p class="margin-bottom-10"><i class="fa fa-map-marker fa-fixed-width"></i> <%= staticcontent.contactaddress %></p>
+				<p class="margin-bottom-10"><i class="fa fa-phone-square fa-fixed-width"></i> <%= staticcontent.contactphone %></p>
+				<p class="margin-bottom-10"><i class="fa fa-laptop fa-fixed-width"></i> <a href="mailto:<%= staticcontent.contactemail %>"><%= staticcontent.contactemail %></a></p>
 			</div>
 			
 		</div>

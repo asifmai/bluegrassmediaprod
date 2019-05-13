@@ -18,3 +18,10 @@ module.exports.login_post = (req, res, next) => {
     failureFlash: 'The email address or password is incorrect',
   })(req, res, next);
 }
+
+// Logout Admin
+module.exports.logout_get = (req, res, next) => {
+  req.logout();
+  req.flash('success_msg', 'You are logged out');
+  res.redirect('/admin/login');
+};

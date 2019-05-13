@@ -12,4 +12,7 @@ router.get('/login', auth.ensureAuthenticatedAdminLogin, adminController.login_g
 /* POST - Private - Authenticate Admin. */
 router.post('/login', adminController.login_post)
 
+/* GET - Private - Logout Admin. */
+router.get('/logout', adminController.logout_get)
+
 module.exports = router;

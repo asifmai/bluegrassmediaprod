@@ -35,6 +35,10 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
+UserSchema.virtual('fullName').get(function () {
+  return this.firstname + ' ' + this.lastname;
+});
+
 UserSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 
 module.exports = mongoose.model('User', UserSchema);

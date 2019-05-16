@@ -1,7 +1,7 @@
 $(function () {
   var BV = new $.BigVideo({
     useFlashForFirefox: false
-  });
+  }); 
   BV.init();
   if ((/iPhone|iPod|iPad|Android|BlackBerry/).test(navigator.userAgent)) {
     BV.show('/images/bluegrassmediavideocover.jpg');

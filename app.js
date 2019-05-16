@@ -12,12 +12,17 @@ const favicon = require('serve-favicon');
 const flash = require('connect-flash');
 const fileUpload = require('express-fileupload');
 const expressSanitizer = require('express-sanitizer');
+const uuidv4 = require('uuid/v4');
+const Chatkit = require('@pusher/chatkit-server');
 
 // Import User Model
 const User = require('./models/user');
 
 // Create App instance
 const app = express();
+
+// Create chatkit instance
+const chatkit = new Chatkit.default(require('./config/chatkitconfig'));
 
 // Routers Config
 const indexRouter = require('./routes/index');
@@ -61,6 +66,10 @@ app.use((req, res, next) => {
 });
 
 // Routers Config
+app.post('/session/auth', (req, res) => {
+  const authData = chatkit.authenticate({ userId: req.query.user_id });
+  res.status(authData.status).send(authData.body);
+});
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 

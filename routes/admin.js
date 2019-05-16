@@ -24,4 +24,7 @@ router.post('/contactinfo', auth.ensureAuthenticatedAdminLogin, adminController.
 /* POST - Private - Update Footer Content. */
 router.post('/footerinfo', auth.ensureAuthenticatedAdminLogin, adminController.footerinfo_post)
 
+/* POST - Private - Update Hero Video. */
+router.post('/videoinfo', auth.ensureAuthenticatedAdminLogin, adminController.videoinfo_post)
+
 module.exports = router;

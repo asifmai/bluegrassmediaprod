@@ -1,5 +1,6 @@
 const passport = require('passport');
 const Staticcontent = require('../models/staticcontent');
+const path = require('path');
 
 // Show Admin Page
 module.exports.index_get = (req, res, next) => {
@@ -59,6 +60,16 @@ module.exports.footerinfo_post = async (req, res, next) => {
   const static = await Staticcontent.find();
   await Staticcontent.findByIdAndUpdate(static[0]._id, {
     footertext: req.body.footertext,
+  });
+  res.redirect('/admin');
+};
+
+// Update Video Info
+module.exports.videoinfo_post = (req, res, next) => {
+  const videoFile = req.files.herovideo;
+  const filePath = path.resolve(__dirname, '../public/videos/bluegrassmedia.mp4')
+  videoFile.mv(filePath, function(err) {
+    if (err) console.log(err);
   });
   res.redirect('/admin');
 };

@@ -42,3 +42,7 @@ input:focus, select:focus, textarea:focus {
   font-size: 1.5em;
     padding: 0.3em;
 }
+
+.mega{
+  color: #212121;
+}

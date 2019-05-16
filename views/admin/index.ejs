@@ -32,146 +32,194 @@
                                 </div>
                             </div>
                         </div>
-                        <section id="headerform">
-                            <form action="/admin/headerinfo" method="POST" data-parsley-validate>
-                            <div class="row m-t-25">
-                                <div class="col">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <strong>Hero</strong> Section
-                                        </div>
-                                        <div class="card-body card-block">
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="headerline1" class=" form-control-label">Hero Title Line 1</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="headerline1" name="headerline1"
-                                                        class="form-control" value="<%= staticcontent.headerline1 %>">
+                        <section id="videoform">
+                            <form action="/admin/videoinfo" method="POST" data-parsley-validate encType="multipart/form-data">
+                                <div class="row m-t-25">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <strong>Video</strong> Section
+                                            </div>
+                                            <div class="card-body card-block">
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="herovideo" class=" form-control-label">Hero Video</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="file" id="herovideo" name="herovideo"
+                                                            class="form-control" accept=".mp4" data-parsley-required
+                                                        >
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="headerline2" class=" form-control-label">Hero Title Line 2</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="headerline2" name="headerline2"
-                                                        class="form-control" value="<%= staticcontent.headerline2 %>">
-                                                </div>
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Save
+                                                </button>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="headertext" class=" form-control-label">Hero Text</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <textarea name="headertext" id="headertext" rows="3" class="form-control"><%= staticcontent.headertext %>
-                                                    </textarea>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="card-footer">
-                                            <button type="submit" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-dot-circle-o"></i> Save
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
+                        </section>
+                        <section id="headerform">
+                            <form action="/admin/headerinfo" method="POST" data-parsley-validate>
+                                <div class="row m-t-25">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <strong>Hero</strong> Section
+                                            </div>
+                                            <div class="card-body card-block">
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="headerline1" class=" form-control-label">Hero Title
+                                                            Line 1</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="headerline1" name="headerline1"
+                                                            class="form-control"
+                                                            value="<%= staticcontent.headerline1 %>">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="headerline2" class=" form-control-label">Hero Title
+                                                            Line 2</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="headerline2" name="headerline2"
+                                                            class="form-control"
+                                                            value="<%= staticcontent.headerline2 %>">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="headertext" class=" form-control-label">Hero
+                                                            Text</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <textarea name="headertext" id="headertext" rows="3"
+                                                            class="form-control"><%= staticcontent.headertext %>
+                                                    </textarea>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </section>
                         <section id="contactusform">
                             <form action="/admin/contactinfo" method="POST" data-parsley-validate>
-                            <div class="row m-t-25">
-                                <div class="col">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <strong>Contact Us</strong> Section
-                                        </div>
-                                        <div class="card-body card-block">
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="contactheader" class=" form-control-label">Header</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="contactheader" name="contactheader"
-                                                        class="form-control" value="<%= staticcontent.contactheader %>">
-                                                </div>
+                                <div class="row m-t-25">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <strong>Contact Us</strong> Section
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="contacttext" class=" form-control-label">Text</label>
+                                            <div class="card-body card-block">
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="contactheader"
+                                                            class=" form-control-label">Header</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="contactheader" name="contactheader"
+                                                            class="form-control"
+                                                            value="<%= staticcontent.contactheader %>">
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 col-md-9">
-                                                    <textarea name="contacttext" id="contacttext" rows="3" class="form-control"><%= staticcontent.contacttext %>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="contacttext"
+                                                            class=" form-control-label">Text</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <textarea name="contacttext" id="contacttext" rows="3"
+                                                            class="form-control"><%= staticcontent.contacttext %>
                                                     </textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="contactaddress"
+                                                            class=" form-control-label">Address</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="contactaddress" name="contactaddress"
+                                                            class="form-control"
+                                                            value="<%= staticcontent.contactaddress %>">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="contactphone"
+                                                            class=" form-control-label">Phone</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="contactphone" name="contactphone"
+                                                            class="form-control"
+                                                            value="<%= staticcontent.contactphone %>">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="contactemail"
+                                                            class=" form-control-label">Email</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="contactemail" name="contactemail"
+                                                            class="form-control"
+                                                            value="<%= staticcontent.contactemail %>">
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="contactaddress" class=" form-control-label">Address</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="contactaddress" name="contactaddress"
-                                                        class="form-control" value="<%= staticcontent.contactaddress %>">
-                                                </div>
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Save
+                                                </button>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="contactphone" class=" form-control-label">Phone</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="contactphone" name="contactphone"
-                                                        class="form-control" value="<%= staticcontent.contactphone %>">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="contactemail" class=" form-control-label">Email</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="contactemail" name="contactemail"
-                                                        class="form-control" value="<%= staticcontent.contactemail %>">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <button type="submit" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-dot-circle-o"></i> Save
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </form>
                         </section>
                         <section id="footerform">
                             <form action="/admin/footerinfo" method="POST" data-parsley-validate>
-                            <div class="row m-t-25">
-                                <div class="col">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <strong>Footer</strong> Section
-                                        </div>
-                                        <div class="card-body card-block">
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="footertext" class=" form-control-label">Footer Text</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="footertext" name="footertext"
-                                                        class="form-control" value="<%= staticcontent.footertext %>">
+                                <div class="row m-t-25">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <strong>Footer</strong> Section
+                                            </div>
+                                            <div class="card-body card-block">
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="footertext" class=" form-control-label">Footer
+                                                            Text</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="footertext" name="footertext"
+                                                            class="form-control"
+                                                            value="<%= staticcontent.footertext %>">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <button type="submit" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-dot-circle-o"></i> Save
-                                            </button>
+                                            <div class="card-footer">
+                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-dot-circle-o"></i> Save
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </form>
                         </section>
                         <div class="row">

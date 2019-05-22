@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/commonhead %>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <!-- HEADER MOBILE-->
+    <% include partials/headermobile %>
+    <!-- END HEADER MOBILE-->
+
+    <!-- MENU SIDEBAR-->
+    <% include partials/sidebar %>
+    <!-- END MENU SIDEBAR-->
+
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+      <!-- HEADER DESKTOP-->
+      <% include partials/headerdesktop %>
+      <!-- HEADER DESKTOP-->
+
+      <!-- MAIN CONTENT-->
+      <div class="main-content">
+        <div class="section__content section__content--p30">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="overview-wrap">
+                  <h2 class="title-1">Add New Project</h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="row m-t-25">
+              <div class="col">
+                <form action="/admin/addproject" method="POST" encType="multipart/form-data">
+                  <div class="card">
+                    <div class="card-header">
+                      Add <strong>New</strong> Project
+                    </div>
+                    <div class="card-body card-block">
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="name" class=" form-control-label">Project Name
+                            <span class="text-danger"> *</span>
+                          </label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <input type="text" id="name" name="name" class="form-control" placeholder="eg. Rulings.law" required>
+                        </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="date" class=" form-control-label">Project Date</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <input type="date" id="date" name="date" class="form-control">
+                        </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="shortdescription" class=" form-control-label">Short Description
+                              <span class="text-danger"> *</span>
+                          </label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <input type="text" id="shortdescription" name="shortdescription" class="form-control"
+                            placeholder="eg. Database of California Rulings" required>
+                        </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="address" class=" form-control-label">URL</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <input type="text" id="address" name="address" class="form-control"
+                            placeholder="eg. http://rulings.law">
+                        </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="description" class=" form-control-label">Project Description
+                              <span class="text-danger"> *</span>
+                          </label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <textarea name="description" id="description" rows="3" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="technologies" class=" form-control-label">Technologies Used
+                              <span class="text-danger"> *</span>
+                          </label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <input type="text" id="technologies" name="technologies" class="form-control"
+                            placeholder="eg. HTML5, CSS3, Javascript, Jquery, Bootstrap, Node.js, Express.js, Mongodb" required>
+                        </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="coverimage" class=" form-control-label">Cover Image
+                              <span class="text-danger"> *</span>
+                          </label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <input type="file" id="coverimage" name="coverimage" class="form-control"
+                            accept=".png, .jpg .jpeg" required>
+                        </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="image1" class=" form-control-label">Image 1</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <input type="file" id="image1" name="image1" class="form-control" accept=".png, .jpg .jpeg">
+                        </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="image2" class=" form-control-label">Image 2</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <input type="file" id="image2" name="image2" class="form-control" accept=".png, .jpg .jpeg">
+                        </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="image3" class=" form-control-label">Image 3</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <input type="file" id="image3" name="image3" class="form-control" accept=".png, .jpg .jpeg">
+                        </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="tags" class=" form-control-label">Tags
+                              <span class="text-danger"> *</span>
+                          </label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <div class="form-check">
+                            <% for (var i = 0; i < tags.length; i++) { %>
+                            <div class="checkbox">
+                              <label for="<%= tags[i]._id %>" class="form-check-label ">
+                                <input type="checkbox" id="<%= tags[i]._id %>" name="tags" value="<%= tags[i]._id %>"
+                                  class="form-check-input"><%= tags[i].name %>
+                              </label>
+                            </div>
+                            <% } %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer text-center">
+                      <button type="submit" class="btn btn-primary btn-sm mr-2">
+                          <i class="fa fa-dot-circle-o"></i> Save
+                      </button>
+                      <button class="btn btn-secondary btn-sm" onclick="cancelClick()" type="button">
+                          <i class="fa fa-dot-circle-o"></i> Cancel
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <% include partials/footer %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END MAIN CONTENT-->
+      <!-- END PAGE CONTAINER-->
+    </div>
+
+  </div>
+  <% include partials/commonscripts %>
+  <script>
+    function cancelClick() {
+      document.location.href = '/admin/projects'
+    }
+  </script>
+</body>
+
+</html>

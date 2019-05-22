@@ -27,4 +27,31 @@ router.post('/footerinfo', auth.ensureAuthenticatedAdminLogin, adminController.f
 /* POST - Private - Update Hero Video. */
 router.post('/videoinfo', auth.ensureAuthenticatedAdminLogin, adminController.videoinfo_post)
 
+/* GET - Private - Show Tags Manager Page. */
+router.get('/tags', auth.ensureAuthenticatedAdmin, adminController.tags_get)
+
+// POST - Private - Add Tag
+router.post('/addtag', auth.ensureAuthenticatedAdmin, adminController.addtag_post);
+
+// POST - Private - Delete Tag
+router.post('/deletetag', auth.ensureAuthenticatedAdmin, adminController.deletetag_post);
+
+/* GET - Private - Show Projects Manager Page. */
+router.get('/projects', auth.ensureAuthenticatedAdmin, adminController.projects_get)
+
+/* GET - Private - Show Add Project Page. */
+router.get('/addproject', auth.ensureAuthenticatedAdmin, adminController.addproject_get)
+
+/* POST - Private - Add Project*/
+router.post('/addproject',  adminController.addproject_post)
+
+/* POST - Private - Delete Project*/
+router.post('/deleteproject', auth.ensureAuthenticatedAdmin, adminController.deleteproject_post)
+
+/* GET - Private - Edit Project*/
+router.get('/editproject/:projectid', auth.ensureAuthenticatedAdmin, adminController.editproject_get)
+
+/* POST - Private - Edit Project*/
+router.post('/editproject',  adminController.editproject_post)
+
 module.exports = router;

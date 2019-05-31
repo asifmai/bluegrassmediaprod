@@ -45,8 +45,8 @@ router.get('/addproject', auth.ensureAuthenticatedAdmin, adminController.addproj
 /* POST - Private - Add Project*/
 router.post('/addproject',  adminController.addproject_post)
 
-/* POST - Private - Delete Project*/
-router.post('/deleteproject', auth.ensureAuthenticatedAdmin, adminController.deleteproject_post)
+/* GET - Private - Delete Project*/
+router.get('/deleteproject/:projectid', auth.ensureAuthenticatedAdmin, adminController.deleteproject_get)
 
 /* GET - Private - Edit Project*/
 router.get('/editproject/:projectid', auth.ensureAuthenticatedAdmin, adminController.editproject_get)

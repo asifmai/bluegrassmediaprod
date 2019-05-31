@@ -132,45 +132,45 @@ module.exports.addproject_post = async (req, res, next) => {
     shortdescription: req.sanitize(req.body.shortdescription.trim()),
     description: req.sanitize(req.body.description.trim()),
     address: req.sanitize(req.body.address.trim()),
-    technologies : req.sanitize(req.body.technologies.trim()),
+    // technologies : req.sanitize(req.body.technologies.trim()),
   }
-  if (req.body.date != '') {
-    newProject.date = new Date(req.sanitize(req.body.date))
-  }
+  // if (req.body.date != '') {
+  //   newProject.date = new Date(req.sanitize(req.body.date))
+  // }
   const createdProject = new Project(newProject);
   createdProject.save().then((proj) => {
     console.log(proj);
-    res.redirect('/admin/projects')
     const dirPath = path.resolve(__dirname, `../public/images/uploads/${proj._id}`);
     fs.mkdirSync(dirPath);
     if (req.files) {
       if (req.files.coverimage) {
-        const coverImagePath = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${proj.coverimage}`);
+        const coverImagePath = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${req.files.coverimage.name}`);
         const file_img = req.files.coverimage;
         file_img.mv(coverImagePath, (err => console.log(err)));
       }
       if (req.files.image1) {
-        const image1Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${proj.images[0]}`);
+        const image1Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${req.files.image1.name}`);
         const file_img = req.files.image1;
         file_img.mv(image1Path, (err => console.log(err)));
       }
       if (req.files.image2) {
-        const image2Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${proj.images[1]}`);
+        const image2Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${req.files.image2.name}`);
         const file_img = req.files.image2;
         file_img.mv(image2Path, (err => console.log(err)));
       }
       if (req.files.image3) {
-        const image3Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${proj.images[2]}`);
+        const image3Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${req.files.image3.name}`);
         const file_img = req.files.image3;
         file_img.mv(image3Path, (err => console.log(err)));
       }
     }
+    res.redirect('/admin/projects')
   })
 }
 
 // Delete tag
-module.exports.deleteproject_post = async (req, res, next) => {
-  const projectId = req.body.projectid
+module.exports.deleteproject_get = async (req, res, next) => {
+  const projectId = req.params.projectid
   const dirPath = path.resolve(__dirname, `../public/images/uploads/${projectId}`)
   rimraf.sync(dirPath);
   await Project.findByIdAndDelete(projectId);
@@ -187,58 +187,54 @@ module.exports.editproject_get = async (req, res, next) => {
 
 // Edit Project
 module.exports.editproject_post = async (req, res, next) => {
-  console.log(req.body);
-  // const rawTags = req.sanitize(req.body.tags);
-  // let editProject;
-  // editProject.name = req.sanitize(req.body.name.trim());
-  // editProject.shortdescription = req.sanitize(req.body.shortdescription.trim());
-  // editProject.address = req.sanitize(req.body.address.trim());
-  // editProject.technologies = req.sanitize(req.body.technologies.trim());
-
-  // const newProject = {
-  //   name: req.sanitize(req.body.name.trim()),
-  //   tags: rawTags.split(','),
-  //   coverimage: req.files.coverimage ? req.files.coverimage.name : '',
-  //   images: [
-  //     req.files.image1 ? req.files.image1.name : '' ,
-  //     req.files.image2 ? req.files.image2.name : '',
-  //     req.files.image3 ? req.files.image3.name: '',
-  //   ],
-  //   shortdescription: req.sanitize(req.body.shortdescription.trim()),
-  //   description: req.sanitize(req.body.description.trim()),
-  //   address: req.sanitize(req.body.address.trim()),
-  //   technologies : req.sanitize(req.body.technologies.trim()),
-  // }
+  // console.log(req.body);
+  const rawTags = req.sanitize(req.body.tags);
+  let newProject = {
+    name: req.sanitize(req.body.name.trim()),
+    tags: rawTags.split(','),
+    shortdescription: req.sanitize(req.body.shortdescription.trim()),
+    description: req.sanitize(req.body.description.trim()),
+    address: req.sanitize(req.body.address.trim()),
+    // technologies : req.sanitize(req.body.technologies.trim()),
+  }
+  if (req.files) {
+    if (req.files.coverimage) newProject.coverimage = req.files.coverimage.name
+    if (req.files.image1 || req.files.image2 || req.files.image3) {
+      newProject.images =[
+        req.files.image1 ? req.files.image1.name : '' ,
+        req.files.image2 ? req.files.image2.name : '',
+        req.files.image3 ? req.files.image3.name: '',
+      ] 
+    }
+  }
   // if (req.body.date != '') {
   //   newProject.date = new Date(req.sanitize(req.body.date))
   // }
-  // const createdProject = new Project(newProject);
-  // createdProject.save().then((proj) => {
-  //   console.log(proj);
-  //   res.redirect('/admin/projects')
-  //   const dirPath = path.resolve(__dirname, `../public/images/uploads/${proj._id}`);
-  //   fs.mkdirSync(dirPath);
-  //   if (req.files) {
-  //     if (req.files.coverimage) {
-  //       const coverImagePath = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${proj.coverimage}`);
-  //       const file_img = req.files.coverimage;
-  //       file_img.mv(coverImagePath, (err => console.log(err)));
-  //     }
-  //     if (req.files.image1) {
-  //       const image1Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${proj.images[0]}`);
-  //       const file_img = req.files.image1;
-  //       file_img.mv(image1Path, (err => console.log(err)));
-  //     }
-  //     if (req.files.image2) {
-  //       const image2Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${proj.images[1]}`);
-  //       const file_img = req.files.image2;
-  //       file_img.mv(image2Path, (err => console.log(err)));
-  //     }
-  //     if (req.files.image3) {
-  //       const image3Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${proj.images[2]}`);
-  //       const file_img = req.files.image3;
-  //       file_img.mv(image3Path, (err => console.log(err)));
-  //     }
-  //   }
-  // })
+  const createdProject = Project.findByIdAndUpdate(req.body.projectid, newProject).then((proj) => {
+    // console.log(proj);
+    const dirPath = path.resolve(__dirname, `../public/images/uploads/${proj._id}`);
+    if (req.files) {
+      if (req.files.coverimage) {
+        const coverImagePath = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${req.files.coverimage.name}`);
+        const file_img = req.files.coverimage;
+        file_img.mv(coverImagePath, (err => console.log(err)));
+      }
+      if (req.files.image1) {
+        const image1Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${req.files.image1.name}`);
+        const file_img = req.files.image1;
+        file_img.mv(image1Path, (err => console.log(err)));
+      }
+      if (req.files.image2) {
+        const image2Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${req.files.image2.name}`);
+        const file_img = req.files.image2;
+        file_img.mv(image2Path, (err => console.log(err)));
+      }
+      if (req.files.image3) {
+        const image3Path = path.resolve(__dirname, `../public/images/uploads/${proj._id}/${req.files.image3.name}`);
+        const file_img = req.files.image3;
+        file_img.mv(image3Path, (err => console.log(err)));
+      }
+    }
+    res.redirect('/admin/projects')
+  })
 }

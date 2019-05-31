@@ -16,7 +16,11 @@ const ProjectSchema = new mongoose.Schema({
   }],
   shortdescription: String,
   description: String,
-  date: Date,
+  date: {
+    type: Date,
+    default: Date.now,
+    required: true,
+  },
   address: String,
   technologies: String,
 });

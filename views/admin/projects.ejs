@@ -61,12 +61,9 @@
                                                   <a class="btn btn-success btn-sm" href="/admin/editproject/<%= projects[i]._id %>">
                                                     <i class="fas fa-edit    "></i> Edit
                                                   </a>
-                                                <form action="/admin/deleteproject" method="POST" class="d-inline">
-                                                  <input type="text" name="projectid" value="<%= projects[i]._id %>" class="d-none">
-                                                  <button class="btn btn-danger btn-sm" type="submit">
-                                                    <i class="fas fa-trash    "></i> Delete
-                                                  </button>
-                                                </form>
+                                                  <a href="/admin/deleteproject/<%= projects[i]._id %>" class="btn btn-danger btn-sm btn-delete-project" type="submit">
+                                                    <i class="fas fa-trash"></i> Delete
+                                                  </a>
                                               </td>
                                           </tr>
                                           <% } %>
@@ -95,6 +92,7 @@
 
   </div>
   <% include partials/commonscripts %>
+  <script src="/javascripts/admin/projects.js"></script>
 </body>
 
 </html>

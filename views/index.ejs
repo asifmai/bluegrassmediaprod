@@ -28,10 +28,15 @@
 				
 			<div id="filters" class="floatright">
 				<a href="*" class="active button">All</a>
-				<a href=".web-design" class="button">Web Design</a>
-				<a href=".development" class="button">Development</a>
-				<a href=".illustration" class="button">Illustration</a>
-				<a href=".business" class="button">Business</a>
+				<% if (tags.length > 0) { %>
+				<% for (var i = 0; i < tags.length; i++) { %>
+					<a href=".<%= tags[i]._id %>" class="button"><%= tags[i].name %></a>
+				<% } %>
+				<% } %>
+					<!-- <a href=".web-design" class="button">Web Design</a> -->
+				<!-- <a href=".development" class="button">Development</a> -->
+				<!-- <a href=".illustration" class="button">Illustration</a> -->
+				<!-- <a href=".business" class="button">Business</a> -->
 			</div>
 			
 			<div class="clear"></div><!--CLEAR FLOATS-->
@@ -46,8 +51,31 @@
 		<div id="loader"></div>
 			
 			<ul class="clearfix portfolio-isotope portfolio scroll-animate bottom">
-							
-				<li class="web-design illustration">
+				<% if (projects.length > 0) { %>	
+				<% for (var i = 0; i < projects.length; i++) {%>
+					<% var tags = '' %>
+					<% var tagsNames = '' %>
+					<% for (var a = 0; a < projects[i].tags.length; a++) { %>
+						<% tags = tags + ' ' + projects[i].tags[a]._id %>
+						<% tagsNames = a > 0 ? tagsNames + ', ' + projects[i].tags[a].name : projects[i].tags[a].name %>
+					<% } %>
+					<li class="<%= tags %>">
+						<a href="single-portfolio.html" class="isotope-alt-image">
+							<img src="/images/uploads/<%= projects[i]._id %>/<%= projects[i].coverimage %>" alt="image" />
+							<div>
+								<h4><%= projects[i].name %><small><%= tagsNames %></small></h4>
+							</div>
+						</a>
+						<div class="isotope-alt-details">
+							<div>
+								<h4 class="remove-bottom"><%= projects[i].name %></h4>
+								<p class="meta"><%= tagsNames %></p>
+							</div>
+						</div>
+					</li>
+				<% } %>	
+				<% } %>	
+				<!-- <li class="web-design illustration">
 					<a href="single-portfolio.html" class="isotope-alt-image">
 						<img src="/images/i1.jpg" alt="image" />
 						<div>
@@ -131,7 +159,7 @@
 							<p class="meta">Web Design, Development</p>
 						</div>
 					</div>
-				</li>
+				</li> -->
 
 			</ul>
 			

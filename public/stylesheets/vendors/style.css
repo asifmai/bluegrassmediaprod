@@ -23,26 +23,48 @@
 /*-----------------------------------------------------------------------------------*/
 
 body {
-	font-family: 'Raleway', sans-serif; font-weight: 300; overflow-x: hidden; line-height: 26px; font-size: 14px; color: #414141; background: #fff;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 300;
+	overflow-x: hidden;
+	line-height: 26px;
+	font-size: 14px;
+	color: #414141;
+	background: #fff;
 }
 
-h1, h2, h3, h4, h5, h6, a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
 	font-weight: 300;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
 	color: #414141;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
 	font-weight: 500;
 }
 
-a, .fa-6x {
-	text-decoration: none; color: #e74c3c;
+a,
+.fa-6x {
+	text-decoration: none;
+	color: #e74c3c;
 }
 
-a:hover, .social a:hover {
+a:hover,
+.social a:hover {
 	color: #c0392b;
 }
 
@@ -51,7 +73,9 @@ p {
 }
 
 .wrapper {
-	margin: 0 auto; width: 960px; position: relative;
+	margin: 0 auto;
+	width: 960px;
+	position: relative;
 }
 
 strong {
@@ -62,7 +86,8 @@ em {
 	font-style: italic;
 }
 
-section, footer {
+section,
+footer {
 	padding: 60px 0 20px;
 }
 
@@ -71,35 +96,64 @@ img {
 }
 
 ::selection {
-    background: #fefac7; /* Safari */
-    color: #555555;
+	background: #fefac7;
+	/* Safari */
+	color: #555555;
 }
+
 ::-moz-selection {
-    background: #fefac7; /* Firefox */
-    color: #555555;
+	background: #fefac7;
+	/* Firefox */
+	color: #555555;
 }
 
 hr {
-	height: 1px; width: 35px; background: #c7c7c7; border: none; margin-bottom: 30px;
+	height: 1px;
+	width: 35px;
+	background: #c7c7c7;
+	border: none;
+	margin-bottom: 30px;
 }
 
 code {
-	background: #f5f5f5; padding: 2px 8px; border-radius: 2px; border: 1px solid #e5e5e5; color: #e74c3c; margin: 0 3px; font-family: 'Helvetica', 'Arial', sans-serif; font-size: 12px;
+	background: #f5f5f5;
+	padding: 2px 8px;
+	border-radius: 2px;
+	border: 1px solid #e5e5e5;
+	color: #e74c3c;
+	margin: 0 3px;
+	font-family: 'Helvetica', 'Arial', sans-serif;
+	font-size: 12px;
 }
 
 pre {
-	margin-bottom:30px;
+	margin-bottom: 30px;
 }
 
 pre code {
-	background: none; padding: 0; border: none; font-family: monospace; color: #414141;
+	background: none;
+	padding: 0;
+	border: none;
+	font-family: monospace;
+	color: #414141;
 }
 
-input, textarea, #load-more, select {
-	width: 100%; background: none; border: 1px solid #e5e5e5; padding: 8px 15px; box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb; font-size: 14px; background: #fff;
+input,
+textarea,
+#load-more,
+select {
+	width: 100%;
+	background: none;
+	border: 1px solid #e5e5e5;
+	padding: 8px 15px;
+	box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb;
+	font-size: 14px;
+	background: #fff;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
 	margin-bottom: 10px;
 }
 
@@ -107,12 +161,16 @@ select {
 	padding: 13px 15px;
 }
 
-input:focus, textarea:focus, input[type="submit"]:hover {
+input:focus,
+textarea:focus,
+input[type="submit"]:hover {
 	border-color: #c7c7c7;
 }
 
 input[type="submit"] {
-	width: auto; cursor: pointer; color: #a7a7a7;
+	width: auto;
+	cursor: pointer;
+	color: #a7a7a7;
 }
 
 input[type="submit"]:hover {
@@ -120,11 +178,21 @@ input[type="submit"]:hover {
 }
 
 textarea {
-	min-height: 160px; resize: none; margin-bottom: 15px;
+	min-height: 160px;
+	resize: none;
+	margin-bottom: 15px;
 }
 
-blockquote, pre, .tab-container div, .tab.active {
-	margin-bottom: 25px; padding: 10px 20px; border: 1px solid #c7c7c7; box-shadow: 0 1px 1px #eaeaea; display: block; border-left: 3px solid #e74c3c;
+blockquote,
+pre,
+.tab-container div,
+.tab.active {
+	margin-bottom: 25px;
+	padding: 10px 20px;
+	border: 1px solid #c7c7c7;
+	box-shadow: 0 1px 1px #eaeaea;
+	display: block;
+	border-left: 3px solid #e74c3c;
 }
 
 blockquote p:last-child {
@@ -132,11 +200,13 @@ blockquote p:last-child {
 }
 
 ol.numbered {
-	list-style: decimal; margin: 0 0 25px 40px;
+	list-style: decimal;
+	margin: 0 0 25px 40px;
 }
 
 ul.unordered {
-	list-style: square; margin: 0 0 25px 40px;
+	list-style: square;
+	margin: 0 0 25px 40px;
 }
 
 small {
@@ -153,7 +223,8 @@ small {
 }
 
 section {
-	z-index: 99; position: relative;
+	z-index: 99;
+	position: relative;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -165,14 +236,19 @@ section {
 /*-----------------------------------------------------------------------------------*/
 
 .isotope-alt-details {
- -webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;
+	-webkit-transition: all 200ms ease-in-out;
+	-moz-transition: all 200ms ease-in-out;
+	-ms-transition: all 200ms ease-in-out;
+	-o-transition: all 200ms ease-in-out;
+	transition: all 200ms ease-in-out;
 }
 
 .remove-bottom {
 	margin-bottom: 0;
 }
 
-.floatleft, .floatright {
+.floatleft,
+.floatright {
 	display: inline-block;
 }
 
@@ -185,47 +261,71 @@ section {
 }
 
 .small-padding {
-	padding: 23px 0 0; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; background: #fff;
+	padding: 23px 0 0;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	background: #fff;
 }
 
 .scroll-animate.left {
-	position: relative; left: -50px; opacity: 0;
+	position: relative;
+	left: -50px;
+	opacity: 0;
 }
 
 .scroll-animate.bottom {
-	position: relative; bottom: -50px; opacity: 0;
+	position: relative;
+	bottom: -50px;
+	opacity: 0;
 }
 
 .scroll-animate.right {
-	position: relative; right: -50px; opacity: 0;
+	position: relative;
+	right: -50px;
+	opacity: 0;
 }
 
 .scroll-animate.top {
-	position: relative; top: -50px; opacity: 0;
+	position: relative;
+	top: -50px;
+	opacity: 0;
 }
 
 .margin-bottom-10 {
 	margin-bottom: 10px;
 }
 
-.alert, .example-column {
-	background: #f5f5f5; border: 1px solid #e5e5e5; padding: 5px 10px; margin-bottom: 4%;
+.alert,
+.example-column {
+	background: #f5f5f5;
+	border: 1px solid #e5e5e5;
+	padding: 5px 10px;
+	margin-bottom: 4%;
 }
 
 .alert i {
-	float: right; cursor: pointer; font-size: 18px; padding-top: 4px;
+	float: right;
+	cursor: pointer;
+	font-size: 18px;
+	padding-top: 4px;
 }
 
 .alert.danger {
-	background: #ffe5e3; color: #d90f00; border-color: #f9bbb8;
+	background: #ffe5e3;
+	color: #d90f00;
+	border-color: #f9bbb8;
 }
 
 .alert.warning {
-	background: #fff6d6; color: #a26025; border-color: #f8d867;
+	background: #fff6d6;
+	color: #a26025;
+	border-color: #f8d867;
 }
 
 .alert.success {
-	background: #cef0cb; color: #698733; border-color: #91cc8c;
+	background: #cef0cb;
+	color: #698733;
+	border-color: #91cc8c;
 }
 
 .centered {
@@ -241,7 +341,8 @@ section {
 }
 
 .break15 {
-	width: 100%; height: 15px;
+	width: 100%;
+	height: 15px;
 }
 
 .overflow-hidden {
@@ -260,11 +361,12 @@ header {
 	padding: 25px 0;
 	background: #fff;
 	position: fixed;
-	top: 0; left: 0;
+	top: 0;
+	left: 0;
 	width: 100%;
 	z-index: 9999;
 	border-bottom: 1px solid #e5e5e5;
-	box-shadow: 0 1px 1px rgba(100,100,100,0.2), inset 0 1px 0 #fbfbfb;
+	box-shadow: 0 1px 1px rgba(100, 100, 100, 0.2), inset 0 1px 0 #fbfbfb;
 }
 
 header * {
@@ -277,14 +379,18 @@ header * {
 }
 
 #selectnav li {
-	float: left; margin-left: 25px;
+	float: left;
+	margin-left: 25px;
 }
 
 #selectnav li a {
-	 color: #414141; text-transform: uppercase; font-weight: 500;
+	color: #414141;
+	text-transform: uppercase;
+	font-weight: 500;
 }
 
-#selectnav li a.active, #selectnav li a:hover {
+#selectnav li a.active,
+#selectnav li a:hover {
 	color: #e74c3c;
 }
 
@@ -323,8 +429,9 @@ header * {
 }
 
 .full {
-	 width: 100%; height: 100%;
-	background: url(../img/parallax.png) no-repeat center center fixed; 
+	width: 100%;
+	height: 100%;
+	background: url(../img/parallax.png) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -333,11 +440,13 @@ header * {
 }
 
 .gallery {
-	padding-bottom: 0; padding-top: 108px;
+	padding-bottom: 0;
+	padding-top: 108px;
 }
 
 .full * {
-	color: #fff; font-weight: 300;
+	color: #fff;
+	font-weight: 300;
 }
 
 .full.video {
@@ -345,8 +454,9 @@ header * {
 }
 
 .big {
-	 width: 100%; height: 400px;
-	background: url(../img/parallax.png) no-repeat center center fixed; 
+	width: 100%;
+	height: 400px;
+	background: url(../img/parallax.png) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -356,7 +466,8 @@ header * {
 }
 
 .big * {
-	color: #fff; font-weight: 300;
+	color: #fff;
+	font-weight: 300;
 }
 
 .button.white.light {
@@ -395,9 +506,12 @@ h1.mega {
 }
 
 .rslides h1.mega {
-	position: absolute; z-index: 99;
-	width: 100%; color: #fff; text-align: center;
-	text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+	position: absolute;
+	z-index: 99;
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .service {
@@ -417,11 +531,21 @@ h1.mega {
 /*-----------------------------------------------------------------------------------*/
 
 .isotope-alt-image div {
-	position: absolute; bottom: 0; left: 0; display: none; background: rgba(231,76,60,0.85); width: 100%; height: 100%; padding: 30px; color: #fff; text-align: left;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: none;
+	background: rgba(231, 76, 60, 0.85);
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+	color: #fff;
+	text-align: left;
 }
 
 .isotope-alt-image div h4 {
-	color: #fff; font-size: 30px;
+	color: #fff;
+	font-size: 30px;
 }
 
 .isotope-alt-image div h4 small {
@@ -429,39 +553,58 @@ h1.mega {
 }
 
 .portfolio-isotope li {
-	float: left; width: 33.3%; position: relative;
+	float: left;
+	width: 33.3%;
+	position: relative;
 }
 
 .portfolio-isotope li {
-	margin-bottom: 30px; padding-right: 25px;
+	margin-bottom: 30px;
+	padding-right: 25px;
 }
 
 .portfolio-isotope li:hover .isotope-alt-details {
-	opacity: 0; pointer-events: none;
+	opacity: 0;
+	pointer-events: none;
 }
 
 .isotope-alt-details {
-	text-align: center; position: absolute; bottom: 0; left: 0; width: 100%; padding-right: 25px;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding-right: 25px;
 }
 
 .isotope-alt-details div {
-	display: block; border: 1px solid #e5e5e5; box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb; background: #fff; border-top: none;
+	display: block;
+	border: 1px solid #e5e5e5;
+	box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb;
+	background: #fff;
+	border-top: none;
 }
 
 .portfolio-isotope {
-	width: 995px; margin-bottom: 10px;
+	width: 995px;
+	margin-bottom: 10px;
 }
 
 .isotope-alt-details h4 {
-	padding-top: 10px; 
+	padding-top: 10px;
 }
 
 .isotope-alt-details .meta {
-	position: relative; padding-bottom: 13px; margin-bottom: 0;
+	position: relative;
+	padding-bottom: 13px;
+	margin-bottom: 0;
 }
 
 .isotope-alt-image {
-	position: relative; display: block; overflow: hidden; text-align: center;
+	position: relative;
+	display: block;
+	overflow: hidden;
+	text-align: center;
 }
 
 .isotope-alt-image img {
@@ -469,32 +612,60 @@ h1.mega {
 }
 
 #load-more {
-	width: 100%; text-align: center; font-size: 24px; cursor: pointer; background: #fff; display: block; margin-bottom: 30px; color: #414141;
+	width: 100%;
+	text-align: center;
+	font-size: 24px;
+	cursor: pointer;
+	background: #fff;
+	display: block;
+	margin-bottom: 30px;
+	color: #414141;
 }
 
-#load-more:hover, #filters a:hover, #filters a.active {
-	border-color: #b7b7b7; color: #111;
+#load-more:hover,
+#filters a:hover,
+#filters a.active {
+	border-color: #b7b7b7;
+	color: #111;
 }
 
 h3 small {
-	display: inline-block; font-size: 14px; margin-left: 7px; color: #c7c7c7;
+	display: inline-block;
+	font-size: 14px;
+	margin-left: 7px;
+	color: #c7c7c7;
 }
 
 #filters a {
-	border: 1px solid #e5e5e5; padding: 7px 13px; box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb; margin: 0 0 0 5px;
+	border: 1px solid #e5e5e5;
+	padding: 7px 13px;
+	box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb;
+	margin: 0 0 5px 5px;
 }
 
 #loader {
-	opacity: 0; position: relative; bottom: -50px; max-width: 770px; width: 90%;
+	opacity: 0;
+	position: relative;
+	bottom: -50px;
+	max-width: 770px;
+	width: 90%;
 	margin: 0 auto;
 }
 
 .portfolio-close {
-	position: absolute; display: block; width: 100%; text-align: center; margin-bottom: 20px; top: -55px; font-size: 44px; color: #c7c7c7;
+	position: absolute;
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 20px;
+	top: -55px;
+	font-size: 44px;
+	color: #c7c7c7;
 }
 
 .overflow-hidden article {
-	position: relative; top: 50px;
+	position: relative;
+	top: 50px;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -505,24 +676,33 @@ h3 small {
 /*	BLOG STYLES
 /*-----------------------------------------------------------------------------------*/
 
-article, .widget {
-	border: 1px solid #e5e5e5; padding: 20px 25px; box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb; background: #fff;
+article,
+.widget {
+	border: 1px solid #e5e5e5;
+	padding: 20px 25px;
+	box-shadow: 0 1px 1px #eaeaea, inset 0 1px 0 #fbfbfb;
+	background: #fff;
 }
 
 .widget {
 	margin-bottom: 25px;
 }
 
-.widget p:last-child, article p:last-child {
+.widget p:last-child,
+article p:last-child {
 	margin-bottom: 0;
 }
 
 .widget.search {
-	background: none; padding: 0; border: none; box-shadow: none;
+	background: none;
+	padding: 0;
+	border: none;
+	box-shadow: none;
 }
 
 article {
-	padding: 0; margin-bottom: 50px;
+	padding: 0;
+	margin-bottom: 50px;
 }
 
 article .content {
@@ -530,12 +710,15 @@ article .content {
 }
 
 article .meta {
-	padding: 15px 25px 15px; font-size: 12px; border-top: 1px solid #e5e5e5;
+	padding: 15px 25px 15px;
+	font-size: 12px;
+	border-top: 1px solid #e5e5e5;
 }
 
 article .meta p {
 	margin-bottom: 0;
 }
+
 /*-----------------------------------------------------------------------------------*/
 /*	END BLOG STYLES
 /*-----------------------------------------------------------------------------------*/
@@ -545,11 +728,14 @@ article .meta p {
 /*-----------------------------------------------------------------------------------*/
 
 footer {
-	border-top: 1px solid #e5e5e5; padding: 45px 0;
+	border-top: 1px solid #e5e5e5;
+	padding: 45px 0;
 }
 
 .social a {
-	font-size: 32px; margin: 0 10px; color: #c7c7c7;
+	font-size: 32px;
+	margin: 0 10px;
+	color: #c7c7c7;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -562,20 +748,22 @@ footer {
 
 @media only screen and (min-width: 1180px) {
 
-	.wrapper { 
-		width:1180px; position:relative;
+	.wrapper {
+		width: 1180px;
+		position: relative;
 	}
-	
+
 	.portfolio-isotope {
 		width: 1215px;
 	}
-	
+
 }
 
 @media only screen and (max-width: 1180px) {
 
 	#selectnav li {
-		float: left; margin-left: 15px;
+		float: left;
+		margin-left: 15px;
 	}
 }
 
@@ -585,21 +773,28 @@ footer {
 /* Standard 960 or Smaller (browsers) */
 @media only screen and (max-width: 959px) {
 
-	#selectnav { display: none; }
-	.selectnav { display: block; }
+	#selectnav {
+		display: none;
+	}
+
+	.selectnav {
+		display: block;
+	}
+
 	.portfolio-isotope li {
 		width: 49.8%;
 	}
-	
+
 }
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 
-	.wrapper { 
-		width:768px; position:relative;
+	.wrapper {
+		width: 768px;
+		position: relative;
 	}
-	
+
 	.portfolio-isotope {
 		width: 803px;
 	}
@@ -609,26 +804,44 @@ footer {
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
 
-	.wrapper { width:479px; margin: 0 auto; position:relative; }
-	
-	.one_half, .one_third, .two_thirds, .one_fourth, .one_fifth, .two_fifth, .three_fifth, .four_fifth, .one_sixth, .five_sixth, .three_fourths { width: 100%; }
-	
+	.wrapper {
+		width: 479px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.one_half,
+	.one_third,
+	.two_thirds,
+	.one_fourth,
+	.one_fifth,
+	.two_fifth,
+	.three_fifth,
+	.four_fifth,
+	.one_sixth,
+	.five_sixth,
+	.three_fourths {
+		width: 100%;
+	}
+
 	#comments li ul {
 		padding-left: 0px;
 	}
-	
+
 	.portfolio-isotope {
 		width: 509px;
 	}
-	
+
 	h1.mega {
 		font-size: 44px;
 	}
-	
-	header .one_fourth, header .three_fourths {
-		width: 50%; margin: 0;
+
+	header .one_fourth,
+	header .three_fourths {
+		width: 50%;
+		margin: 0;
 	}
-	
+
 	.big h1.mega {
 		margin-top: -10px;
 	}
@@ -642,16 +855,20 @@ footer {
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
 
-	.wrapper { width:300px; margin: 0 auto; position:relative; }
-	
+	.wrapper {
+		width: 300px;
+		margin: 0 auto;
+		position: relative;
+	}
+
 	.portfolio-isotope li {
 		width: 100%;
 	}
-	
+
 	.portfolio-isotope {
 		width: 325px;
 	}
-	
+
 }
 
 /*-----------------------------------------------------------------------------------*/

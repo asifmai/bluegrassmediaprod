@@ -5,4 +5,7 @@ const indexController = require('../controllers/indexcontroller');
 /* GET home page. */
 router.get('/', indexController.index_get);
 
+/* GET All Projects */
+router.get('/getallprojects', indexController.getallprojects_get);
+
 module.exports = router;

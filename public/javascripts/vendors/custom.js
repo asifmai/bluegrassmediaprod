@@ -19,6 +19,13 @@ jQuery(window).load(function($){
 
 	jQuery('.portfolio').isotope({
 		itemSelector : 'li'
+		// getSortData: {
+		// 	prioritize: function ($elm) {
+		// 		return $elm.attr('prioritize');
+		// 	}
+		// },
+		// sortBy: 'prioritize',
+		// sortAscending : false
 	});
 	
 	jQuery('#filters a').click(function(){
@@ -39,19 +46,31 @@ jQuery(window).load(function($){
 		}, 501);
 	});
 	
-	jQuery('#load-more').click(function(){
+	jQuery('#load-more').click(function(e){
+		e.preventDefault();
 		var url = jQuery(this).attr('href');
-		jQuery(this).html('<img src="img/loader.gif" />');
+		jQuery(this).html('<img src="/images/loader.gif" />');
 		
-		jQuery.get(url, function(data){
-			var filtered = jQuery(data);
-			filtered.imagesLoaded(function(){
-				filtered.find('.isotope-alt-image').each(function(){
-					jQuery(this).hoverdir();
-				});
-				jQuery('.portfolio').isotope('insert', filtered).isotope('reLayout');
-				jQuery('#load-more').fadeOut();
-			});
+		jQuery.ajax({
+			type: "get",
+			url: "/getallprojects",
+			success: function (projects) {
+				console.log(projects);
+					for (var i = 0; i < projects.length; i++) {
+						var tags = '';
+						var tagsNames = '';
+						for (var a = 0; a < projects[i].tags.length; a++) {
+							tags = tags + ' ' + projects[i].tags[a]._id;
+							tagsNames = a > 0 ? tagsNames + ', ' + projects[i].tags[a].name : projects[i].tags[a].name;
+						};
+						var newItem = jQuery('<li class="'+ tags +'" prioritize="'+ projects[i].prioritize + '"><a href="single-portfolio.html" class="isotope-alt-image"><img src="/images/uploads/' + projects[i]._id +'/' + projects[i].coverimage +'" alt="image" /><div><h4>' + projects[i].name + '<small>' + tagsNames + '</small></h4></div></a><div class="isotope-alt-details"><div><h4 class="remove-bottom">' + projects[i].name + '</h4><p class="meta">' + tagsNames + '</p></div></div></li>');
+						newItem.find('.isotope-alt-image').hoverdir();
+						jQuery('.portfolio').isotope('insert', newItem).isotope('reLayout');
+					}
+					jQuery(window).trigger('resize');
+					jQuery('#load-more').fadeOut();
+				// });
+			}
 		});
 		return false;
 	});

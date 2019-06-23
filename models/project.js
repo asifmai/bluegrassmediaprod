@@ -23,6 +23,11 @@ const ProjectSchema = new mongoose.Schema({
   },
   address: String,
   technologies: String,
+  prioritize: {
+    type: Boolean,
+    default: false,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model('Project', ProjectSchema);

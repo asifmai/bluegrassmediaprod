@@ -27,6 +27,15 @@ router.post('/footerinfo', auth.ensureAuthenticatedAdminLogin, adminController.f
 /* POST - Private - Update Hero Video. */
 router.post('/videoinfo', auth.ensureAuthenticatedAdminLogin, adminController.videoinfo_post)
 
+/* POST - Private - Update Portfolio Content */
+router.post('/portfolioinfo', auth.ensureAuthenticatedAdminLogin, adminController.portfolioinfo_post)
+
+/* POST - Private - Add Help Item */
+router.post('/addhelpitem', auth.ensureAuthenticatedAdminLogin, adminController.addhelpitem_post)
+
+// POST - Private - Delete Help item
+router.get('/deletehelpitem/:itemid', auth.ensureAuthenticatedAdmin, adminController.deletehelpitem_post);
+
 /* GET - Private - Show Tags Manager Page. */
 router.get('/tags', auth.ensureAuthenticatedAdmin, adminController.tags_get)
 

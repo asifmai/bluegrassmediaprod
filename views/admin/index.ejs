@@ -116,6 +116,48 @@
                                 </div>
                             </form>
                         </section>
+                        <section id="portfolioform">
+                                <form action="/admin/portfolioinfo" method="POST" data-parsley-validate>
+                                    <div class="row m-t-25">
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <strong>Portfolio</strong> Section
+                                                </div>
+                                                <div class="card-body card-block">
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="portfoliotitle" class=" form-control-label">Portfolio
+                                                                Title</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="text" id="portfoliotitle" name="portfoliotitle"
+                                                                class="form-control"
+                                                                value="<%= staticcontent.portfoliotitle %>">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for="portfolioheader" class=" form-control-label">Portfolio
+                                                                Header</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="text" id="portfolioheader" name="portfolioheader"
+                                                                class="form-control"
+                                                                value="<%= staticcontent.portfolioheader %>">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <button type="submit" class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-dot-circle-o"></i> Save
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
                         <section id="contactusform">
                             <form action="/admin/contactinfo" method="POST" data-parsley-validate>
                                 <div class="row m-t-25">
@@ -180,11 +222,61 @@
                                                             value="<%= staticcontent.contactemail %>">
                                                     </div>
                                                 </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-3">
+                                                        <label for="contactskype"
+                                                            class=" form-control-label">Skype</label>
+                                                    </div>
+                                                    <div class="col-12 col-md-9">
+                                                        <input type="text" id="contactskype" name="contactskype"
+                                                            class="form-control"
+                                                            value="<%= staticcontent.contactskype %>">
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="card-footer">
                                                 <button type="submit" class="btn btn-primary btn-sm">
                                                     <i class="fa fa-dot-circle-o"></i> Save
                                                 </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                        <section id="helpform">
+                            <form action="/admin/addhelpitem" method="POST" data-parsley-validate>
+                                <div class="row m-t-25">
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <strong>How Can we Help</strong> Section
+                                            </div>
+                                            <div class="card-body card-block">
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3">
+                                                            <label for=""
+                                                                class=" form-control-label">How Can We Help</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9">
+                                                            <div class="input-group mb-3">
+                                                                <input type="text" class="form-control" id="input-addhelp" required name="helpitem">
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-outline-primary btn-addhelp" href="#" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="help-items">
+                                                                <% for (var i = 0; i < helpitems.length; i++) { %>
+                                                                    <div class="help-item">
+                                                                        <span><%= helpitems[i].text %></span>
+                                                                        <a href="/admin/deletehelpitem/<%= helpitems[i]._id %>" class="text-danger">
+                                                                            <i class="fas fa-trash    "></i>
+                                                                        </a>
+                                                                    </div>
+                                                                <% } %>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>

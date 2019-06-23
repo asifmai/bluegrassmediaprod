@@ -60,7 +60,7 @@
                           <input type="date" id="date" name="date" class="form-control">
                         </div>
                       </div> -->
-                      <div class="row form-group">
+                      <!-- <div class="row form-group">
                         <div class="col col-md-3">
                           <label for="shortdescription" class=" form-control-label">Short Description
                               <span class="text-danger"> *</span>
@@ -70,7 +70,7 @@
                           <input type="text" id="shortdescription" name="shortdescription" class="form-control"
                             value="<%= project.shortdescription %>" required>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="row form-group">
                         <div class="col col-md-3">
                           <label for="address" class=" form-control-label">URL</label>
@@ -154,6 +154,21 @@
                           </div>
                         </div>
                       </div>
+                      <div class="row form-group">
+                        <div class="col col-md-3">
+                          <label for="prioritize" class=" form-control-label">Prioritize</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                          <div class="form-check">
+                            <div class="checkbox">
+                              <label for="prioritize" class="form-check-label ">
+                                <input type="checkbox" id="prioritize" name="prioritize"
+                                  class="form-check-input"> True/False
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div class="card-footer text-center">
                       <button type="submit" class="btn btn-primary btn-sm mr-2">
@@ -189,20 +204,25 @@
 
     $(document).ready(function () {
       let project = eval(<%- JSON.stringify(project) %>);
-      console.log(project);
-      if (project.date) {
-        var dt = new Date(project.date);
-        var day = ("0" + dt.getDate()).slice(-2);
-        var month = ("0" + (dt.getMonth() + 1)).slice(-2);
+      // console.log(project);
+      // if (project.date) {
+      //   var dt = new Date(project.date);
+      //   var day = ("0" + dt.getDate()).slice(-2);
+      //   var month = ("0" + (dt.getMonth() + 1)).slice(-2);
 
-        var date = dt.getFullYear()+"-"+(month)+"-"+(day) ;
+      //   var date = dt.getFullYear()+"-"+(month)+"-"+(day) ;
 
-        $('input#date').val(date);
-      }
+      //   $('input#date').val(date);
+      // }
       if (project.tags) {
         for (let i = 0; i < project.tags.length; i++) {
           var selector = 'input#' + project.tags[i]._id;
           $(selector).prop('checked', true);
+        }
+      }
+      if (project.prioritize) {
+        if (project.prioritize == true) {
+          $('input#prioritize').prop('checked', true);
         }
       }
     });

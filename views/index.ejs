@@ -24,7 +24,7 @@
 	<section class="small-padding" id="portfolio">
 	
 		<div class="wrapper">
-			<h3 class="floatleft">Portfolio <small class="portfolio-filter">We're really proud.</small></h3>
+			<h3 class="floatleft"><%= staticcontent.portfoliotitle %> <small class="portfolio-filter"><%= staticcontent.portfolioheader %></small></h3>
 				
 			<div id="filters" class="floatright">
 				<a href="*" class="active button">All</a>
@@ -51,7 +51,7 @@
 		<div id="loader"></div>
 			
 			<ul class="clearfix portfolio-isotope portfolio scroll-animate bottom">
-				<% if (projects.length > 0) { %>	
+				<% if (projects.length > 0) { %>
 				<% for (var i = 0; i < projects.length; i++) {%>
 					<% var tags = '' %>
 					<% var tagsNames = '' %>
@@ -59,7 +59,7 @@
 						<% tags = tags + ' ' + projects[i].tags[a]._id %>
 						<% tagsNames = a > 0 ? tagsNames + ', ' + projects[i].tags[a].name : projects[i].tags[a].name %>
 					<% } %>
-					<li class="<%= tags %>">
+					<li class="<%= tags %>" prioritize="<%= projects[i].prioritize %>">
 						<a href="single-portfolio.html" class="isotope-alt-image">
 							<img src="/images/uploads/<%= projects[i]._id %>/<%= projects[i].coverimage %>" alt="image" />
 							<div>
@@ -186,22 +186,22 @@
 			
 			<div class="two_thirds scroll-animate left">
 				<div id="message"></div>
-				<form method="POST" action="/contactus" id="contactform">
+				<form method="POST" action="/contactus" id="contactform" data-parsley-validate>
 					<div class="input-grp">
 						<label for="name">Name</label>
-						<input type="text" name="name" id="name" class="form-control"/>
+						<input type="text" name="name" id="name" class="form-control" required/>
 					</div>
 					<div class="input-grp">
 						<label for="phone">Phone Number</label>
-						<input type="text" name="phone" id="phone" class="form-control"/>
+						<input type="text" name="phone" id="phone" class="form-control" required/>
 					</div>
 					<div class="input-grp">
 						<label for="email">Email</label>
-						<input type="email" name="email" id="email" class="form-control"/>
+						<input type="email" name="email" id="email" class="form-control" required/>
 					</div>
 					<div class="input-grp">
 						<label for="methodofcontact">Preferred Method of Contact</label>
-						<select name="methodofcontact" id="methodofcontact" class="form-control">
+						<select name="methodofcontact" id="methodofcontact" class="form-control" required>
 							<option value="email">By Email</option>
 							<option value="phone">By Phone</option>
 						</select>
@@ -209,23 +209,21 @@
 					<div class="input-grp">
 						<label for="timeofcontact">Preferred Date and Time of Contact</label>
 						<div>
-							<input type="date" name="date" id="date" class="mr-2 form-control"/>
-							<input type="time" name="time" id="time" class="form-control"/>
+							<input type="date" name="date" id="date" class="mr-2 form-control" required/>
+							<input type="time" name="time" id="time" class="form-control" required/>
 						</div>
 					</div>
 					<div class="input-grp">
 						<label for="howcanwehelpyou">How Can We Help You</label>
-						<select name="howcanwehelpyou" id="howcanwehelpyou" class="form-control">
-							<option value="">Option 1</option>
-							<option value="">Option 2</option>
-							<option value="">Option 3</option>
-							<option value="">Option 4</option>
-							<option value="">Option 5</option>
+						<select name="howcanwehelpyou" id="howcanwehelpyou" class="form-control" required>
+							<% for (var i = 0; i < helpitems.length; i++) { %>
+								<option value="<%= helpitems[i]._id %>"><%= helpitems[i].text %></option>
+							<% } %>
 						</select>
 					</div>
 					<div class="input-grp">
 						<label for="comments">Comments</label>
-						<textarea name="comments" id="comments" class="form-control"></textarea>
+						<textarea name="comments" id="comments" class="form-control" required></textarea>
 					</div>
 					<input type="submit" name="submit" value="Submit" />
 				</form>
@@ -237,6 +235,7 @@
 				<p class="margin-bottom-10"><i class="fa fa-map-marker fa-fixed-width"></i> <%= staticcontent.contactaddress %></p>
 				<p class="margin-bottom-10"><i class="fa fa-phone-square fa-fixed-width"></i> <%= staticcontent.contactphone %></p>
 				<p class="margin-bottom-10"><i class="fa fa-laptop fa-fixed-width"></i> <a href="mailto:<%= staticcontent.contactemail %>"><%= staticcontent.contactemail %></a></p>
+				<p class="margin-bottom-10"><i class="fa fa-skype fa-fixed-width"></i> <%= staticcontent.contactskype %></p>
 			</div>
 			
 		</div>
@@ -245,7 +244,8 @@
 
   <!-- Page Body Ends -->
   <% include partials/footer %>
-  <% include partials/commonscripts %>
+	<% include partials/commonscripts %>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/index.js"></script>
 </body>
 </html>

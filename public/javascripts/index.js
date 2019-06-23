@@ -23,9 +23,19 @@ $(function () {
     $(this).removeClass('unmuted').addClass('muted');
     return false;
   });
+});
 
+$(document).ready(function () {
   document.getElementById('date').value = getDate();
-  document.getElementById('time').value = getTime();
+  
+  $('#methodofcontact').change(function (e) { 
+    e.preventDefault();
+    if($(this).val() == 'email') {
+      $('input#date').css('display', 'none')
+    } else {
+      $('input#date').css('display', 'block')
+    }
+  });
 });
 
 function getDate() {
@@ -41,18 +51,4 @@ function getDate() {
   }
   var dtString = year + "-" + month + "-" + date;
   return dtString;
-}
-
-function getTime() {
-  var dt = new Date();
-  var hours = dt.getHours();
-  var minutes = dt.getMinutes();
-  if (hours < 10) {
-    hours = "0" + hours;
-  }
-  if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
-  var timeString = hours + ":" + minutes;
-  return timeString;
 }

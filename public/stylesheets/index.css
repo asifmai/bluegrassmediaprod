@@ -11,3 +11,7 @@
        -o-transition-duration: 0s;
           transition-duration: 0s;
 }
+
+input#date {
+  display: none;
+}

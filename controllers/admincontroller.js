@@ -1,6 +1,7 @@
 const passport = require('passport');
 const Staticcontent = require('../models/staticcontent');
 const Tag = require('../models/tag');
+const Metatag = require('../models/metatag');
 const Project = require('../models/project');
 const Helpitem = require('../models/helpitem');
 const path = require('path');
@@ -66,6 +67,9 @@ module.exports.footerinfo_post = async (req, res, next) => {
   const static = await Staticcontent.find();
   await Staticcontent.findByIdAndUpdate(static[0]._id, {
     footertext: req.body.footertext,
+    facebookurl: req.body.facebookurl,
+    twitterurl: req.body.twitterurl,
+    instagramurl: req.body.instagramurl,
   });
   res.redirect('/admin');
 };
@@ -267,4 +271,26 @@ module.exports.addhelpitem_post = async (req, res, next) => {
   const newHelpItem = new Helpitem({text: req.body.helpitem});
   await newHelpItem.save();
   res.redirect('/admin');
+}
+
+// Show Meta Tags Page
+module.exports.metatags_get = (req, res, next) => {
+  Metatag.find().then(data => {
+    res.render('admin/metatags', {metatags: data});
+  })
+}
+
+// Add Meta Tag
+module.exports.addmetatag_post = async (req, res, next) => {
+  console.log(req.body);
+  const newMataTag = new Metatag(req.body);
+  await newMataTag.save()
+  res.redirect('/admin/metatags');
+}
+
+// Delete Meta Tag
+module.exports.deletemetatag_post = async (req, res, next) => {
+  const metatagid = req.body.metatagid;
+  await Metatag.findByIdAndDelete(metatagid);
+  res.redirect('/admin/metatags');
 }

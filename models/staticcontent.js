@@ -13,6 +13,9 @@ const StaticcontentSchema = new mongoose.Schema({
   contactemail: String,
   contactskype: String,
   footertext: String,
+  facebookurl: String,
+  twitterurl: String,
+  instagramurl: String,
 });
 
 module.exports = mongoose.model('Staticcontent', StaticcontentSchema);

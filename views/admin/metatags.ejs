@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/commonhead %>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <!-- HEADER MOBILE-->
+    <% include partials/headermobile %>
+    <!-- END HEADER MOBILE-->
+
+    <!-- MENU SIDEBAR-->
+    <% include partials/sidebar %>
+    <!-- END MENU SIDEBAR-->
+
+    <!-- PAGE CONTAINER-->
+    <div class="page-container">
+      <!-- HEADER DESKTOP-->
+      <% include partials/headerdesktop %>
+      <!-- HEADER DESKTOP-->
+
+      <!-- MAIN CONTENT-->
+      <div class="main-content">
+        <div class="section__content section__content--p30">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="overview-wrap">
+                  <h2 class="title-1">Meta Tags Manager</h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="row m-t-25">
+              <div class="col">
+                <div class="card">
+                  <div class="card-header">
+                    Manage <strong>Meta Tags</strong>
+                  </div>
+                  <div class="card-body card-block">
+                    <div class="row form-group">
+                      <div class="col">
+                      <form action="/admin/addmetatag" method="POST">
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="name" class=" form-control-label">Name</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="content" class=" form-control-label">Content</label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" id="content" name="content" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col text-right">
+                            <button class="btn btn-primary" type="submit">Add</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                          <div class="mt-4 px-4">
+                              <h3 class="title-3 m-b-30">current meta tags</h3>
+                              <div class="table-responsive">
+                                  <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th>Name</th>
+                                          <th>Content</th>
+                                          <th>Delete</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <% for (var i = 0; i < metatags.length; i++) { %>
+                                          <tr>
+                                              <td><%= metatags[i].name %></td>
+                                              <td><%= metatags[i].content %></td>
+                                              <td>
+                                                <form action="/admin/deletemetatag" method="POST">
+                                                  <input type="text" name="metatagid" value="<%= metatags[i]._id %>" class="d-none">
+                                                  <button class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash    "></i> Delete
+                                                  </button>
+                                                </form>
+                                              </td>
+                                          </tr>
+                                          <% } %>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <% include partials/footer %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END MAIN CONTENT-->
+      <!-- END PAGE CONTAINER-->
+    </div>
+
+  </div>
+  <% include partials/commonscripts %>
+</body>
+
+</html>

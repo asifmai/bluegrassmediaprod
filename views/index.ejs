@@ -163,7 +163,7 @@
 
 			</ul>
 			
-			<a href="more-posts.html" id="load-more" class="scroll-animate top">Load More</a>
+			<!-- <a href="more-posts.html" id="load-more" class="scroll-animate top">Load More</a> -->
 			
 		</div>
 		
@@ -260,15 +260,14 @@
 				<p class="margin-bottom-10"><i class="fa fa-laptop fa-fixed-width"></i> <a href="mailto:<%= staticcontent.contactemail %>"><%= staticcontent.contactemail %></a></p>
 				<p class="margin-bottom-10"><i class="fa fa-skype fa-fixed-width"></i> <%= staticcontent.contactskype %></p>
 			</div>
-			
 		</div>
-		
 	</section>
 
   <!-- Page Body Ends -->
   <% include partials/footer %>
 	<% include partials/commonscripts %>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/javascripts/index.js"></script>
+	<script src="/javascripts/index.js"></script>
+	<% include partials/tawk.ejs %>
 </body>
 </html>

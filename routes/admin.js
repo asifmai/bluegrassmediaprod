@@ -63,4 +63,13 @@ router.get('/editproject/:projectid', auth.ensureAuthenticatedAdmin, adminContro
 /* POST - Private - Edit Project*/
 router.post('/editproject',  adminController.editproject_post)
 
+/* GET - Private - Show Meta Tags Page*/
+router.get('/metatags', auth.ensureAuthenticatedAdmin, adminController.metatags_get)
+
+/* POST - Private - Save Meta Tag*/
+router.post('/addmetatag', auth.ensureAuthenticatedAdmin, adminController.addmetatag_post)
+
+/* POST - Private - Delete Meta Tag*/
+router.post('/deletemetatag', auth.ensureAuthenticatedAdmin, adminController.deletemetatag_post)
+
 module.exports = router;

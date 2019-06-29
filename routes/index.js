@@ -8,4 +8,7 @@ router.get('/', indexController.index_get);
 /* GET All Projects */
 router.get('/getallprojects', indexController.getallprojects_get);
 
+/* GET Single Project Page */
+router.get('/project/:projectid', indexController.project_get);
+
 module.exports = router;

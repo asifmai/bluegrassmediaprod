@@ -47,9 +47,7 @@
 	<section class="dark-wrapper">
 	
 		<div class="wrapper overflow-hidden">
-		
 		<div id="loader"></div>
-			
 			<ul class="clearfix portfolio-isotope portfolio scroll-animate bottom">
 				<% if (projects.length > 0) { %>
 				<% for (var i = 0; i < projects.length; i++) {%>
@@ -60,7 +58,7 @@
 						<% tagsNames = a > 0 ? tagsNames + ', ' + projects[i].tags[a].name : projects[i].tags[a].name %>
 					<% } %>
 					<li class="<%= tags %>" prioritize="<%= projects[i].prioritize %>">
-						<a href="single-portfolio.html" class="isotope-alt-image">
+						<a href="<%= projects[i]._id %>" class="isotope-alt-image">
 							<img src="/images/uploads/<%= projects[i]._id %>/<%= projects[i].coverimage %>" alt="image" />
 							<div>
 								<h4><%= projects[i].name %><small><%= tagsNames %></small></h4>
@@ -267,7 +265,10 @@
   <% include partials/footer %>
 	<% include partials/commonscripts %>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script src="/javascripts/index.js"></script>
 	<% include partials/tawk.ejs %>
+	<script>
+		let projects = eval(<%- JSON.stringify(projects) %>);
+	</script>
+	<script src="/javascripts/index.js"></script>
 </body>
 </html>

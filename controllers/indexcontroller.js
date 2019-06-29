@@ -21,3 +21,9 @@ module.exports.getallprojects_get = async (req, res, next) => {
   res.status = 200;
   res.json(projects);
 }
+
+module.exports.project_get = async (req, res, next) => {
+  const projectid = req.params.projectid;
+  const projectInfo = await Project.findById(projectid);
+  res.render('project', {project: projectInfo});
+}

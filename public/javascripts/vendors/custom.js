@@ -156,24 +156,22 @@ jQuery(document).ready(function($){
 
 	$('body').on('click', '.portfolio a', function(){
 	
-		var url = $(this).attr('href');
+		var projectID = $(this).attr('href');
 		
 		$("html, body").animate({ scrollTop: $('#portfolio').offset().top + 60 }, 500);
-	
+
 		$('.portfolio, #load-more').animate({ 'left' : '-1215px', 'opacity' : '0' }, function(){
-			$.get(url, function(data){
-				var filtered = jQuery(data);
-				$(".rslides", filtered).responsiveSlides({
-				  speed: 500,
-				  timeout: 4000,
-				  pager: true
-				});
-				filtered.imagesLoaded(function(){
-					$('.portfolio').css('max-height', '0');
-					$('#loader').html(filtered).animate({ 'opacity' : '1', 'bottom' : '0' });
-				});
+			const data = generateHTML(projectID);
+			var filtered = jQuery(data);
+			$(".rslides", filtered).responsiveSlides({
+				speed: 500,
+				timeout: 4000,
+				pager: true
 			});
-			
+			filtered.imagesLoaded(function(){
+				$('.portfolio').css('max-height', '0');
+				$('#loader').html(filtered).animate({ 'opacity' : '1', 'bottom' : '0' });
+			});
 		});
 		return false;
 	});
@@ -295,3 +293,33 @@ jQuery(document).ready(function($){
 	});
 	
 });
+
+function generateHTML(projectid) {
+	for (var i = 0; i < projects.length; i++) {
+		if (projects[i]._id == projectid) {
+			var htmlContent = '<article><a href="#" class="portfolio-close"><i class="fa fa-times"></i></a><ul class="rslides"><li><img src="/images/uploads/'+ projectid + '/' + projects[i].coverimage +'" alt="image"></li>';
+			for (let a = 0; a < projects[i].images.length; a++) {
+				if (projects[i].images[a] != '') {
+					htmlContent+= '<li><img src="/images/uploads/'+ projectid + '/' + projects[i].images[a] +'" alt="image"></li>'
+				}
+			}
+			htmlContent+= '</ul><div class="content"><div class="break15"></div><div class="two_thirds">'
+			htmlContent+= '<h4>' + projects[i].name + '</h4>'
+			htmlContent+= '<p>' + projects[i].description + '</p>'
+			htmlContent+= '</div><div class="one_third last">'
+			htmlContent+= '<h5>Project Details</h5><p>'
+			htmlContent+= '<strong>Skills</strong>: '
+			for (let a = 0; a < projects[i].tags.length; a++) {
+				if (a != projects[i].tags.length - 1) {
+					htmlContent+= projects[i].tags[a].name + ', '
+				} else {
+					htmlContent+= projects[i].tags[a].name
+				}
+			}
+			htmlContent+= '<br />'
+			htmlContent+= '<strong>Address</strong>: <a href="' + projects[i].address + '" class="light">' + projects[i].address + '</a>'
+			htmlContent+= '</p></div><div class="clear"></div></div></article>'
+			return htmlContent;
+		}
+	}
+}

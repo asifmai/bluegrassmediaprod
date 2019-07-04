@@ -11,4 +11,6 @@ router.get('/getallprojects', indexController.getallprojects_get);
 /* GET Single Project Page */
 router.get('/project/:projectid', indexController.project_get);
 
+// POST Send Contact Us Mail
+router.post('/contactus', indexController.contactus_post)
 module.exports = router;

@@ -1,10 +1,10 @@
 module.exports = {
   mongoURI: 'mongodb://localhost/bluegrassmedia',
-  contactEmail: {
-    host: 'mail.name.com',
+  supportBlugrassMedia: {
+    host: 'smtp.office365.com',
     port: 587,
     secure: false,
-    user: 'contact@rulings.law',
-    password: 'JudgeMe2018!',
+    user: 'support@bluegrass.media',
+    password: 'GhostZapper2005!',
   },
 };

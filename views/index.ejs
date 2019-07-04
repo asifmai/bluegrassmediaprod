@@ -5,10 +5,10 @@
 	<link rel="stylesheet" href="/stylesheets/index.css">
 </head>
 <body>
+	<% include partials/messages %>
   <% include partials/header %>
   <!-- Page Body Starts -->
 	<section class="full video" id="home">
-	
 		<h1 class="mega">
 			<%= staticcontent.headerline1 %>
 			<br />
@@ -184,7 +184,7 @@
 			
 			<div class="two_thirds scroll-animate left">
 				<div id="message"></div>
-				<form method="POST" action="/contactus" id="contactform" data-parsley-validate>
+				<form method="POST" action="/contactus" data-parsley-validate>
 					<div class="input-grp">
 						<label for="name">Name</label>
 						<input type="text" name="name" id="name" class="form-control" required/>
@@ -200,9 +200,9 @@
 					<div class="input-grp">
 						<label for="methodofcontact">Preferred Method of Contact</label>
 						<select name="methodofcontact" id="methodofcontact" class="form-control" required>
-							<option value="email">By Email</option>
-							<option value="phone">By Phone</option>
-							<option value="skype">By Skype</option>
+							<option value="Email">By Email</option>
+							<option value="Phone">By Phone</option>
+							<option value="Skype">By Skype</option>
 						</select>
 					</div>
 					<div class="input-grp">
@@ -246,7 +246,7 @@
 						<label for="comments">Comments</label>
 						<textarea name="comments" id="comments" class="form-control" required></textarea>
 					</div>
-					<input type="submit" name="submit" value="Submit" />
+					<input type="submit" />
 				</form>
 			</div>
 			

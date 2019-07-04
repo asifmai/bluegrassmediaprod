@@ -4,6 +4,7 @@ const Tag = require('../models/tag');
 const Metatag = require('../models/metatag');
 const Project = require('../models/project');
 const Helpitem = require('../models/helpitem');
+const mailer = require('../helpers/mailer');
 
 module.exports.index_get = async (req, res, next) => {
   const static = await StaticContent.find();
@@ -26,4 +27,11 @@ module.exports.project_get = async (req, res, next) => {
   const projectid = req.params.projectid;
   const projectInfo = await Project.findById(projectid);
   res.render('project', {project: projectInfo});
+}
+
+module.exports.contactus_post = (req, res, next) => {
+  console.log(req.body);
+  mailer.sendContactUsMail(req.body);
+  req.flash('success_msg', 'Thank you for contacting us. We will get back to you shortly!')
+  res.redirect('/');
 }

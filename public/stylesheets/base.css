@@ -42,6 +42,10 @@ input:focus, select:focus, textarea:focus {
   box-shadow: none !important;
 }
 
+.dark-wrapper {
+  padding-top: 30px;
+}
+
 .parsley-errors-list.filled{
   list-style: none;
   padding-left: 0.5em;
@@ -58,16 +62,21 @@ input:focus, select:focus, textarea:focus {
 
 .alert {
   margin: 0;
-  padding: 0.1em;
-  font-size: 0.8em;
+  padding: 0.1em 3em;
+  font-size: 1em;
   font-weight: bold;
   background: transparent;
   text-align: center;
+  z-index: 1045;
+  position: fixed;
+  top: 7em;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .alert .close {
-  font-size: 1.5em;
-    padding: 0.3em;
+  font-size: 1.8em;
+  padding: 0em 0.5em;
 }
 
 .mega{

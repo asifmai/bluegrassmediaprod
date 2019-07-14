@@ -57,19 +57,21 @@ jQuery(window).load(function($){
 			url: "/getprojects/" + pageNumber,
 			success: function (projectsReturn) {
 				// console.log(projectsReturn);
-				var projects = projectsReturn.projects;
-					for (var i = 0; i < projects.length; i++) {
+				var newProjects = projectsReturn.projects;
+				console.log(newProjects);
+				console.log(projects);
+				projects = projects.concat(newProjects);
+					for (var i = 0; i < newProjects.length; i++) {
 						var tags = '';
 						var tagsNames = '';
-						for (var a = 0; a < projects[i].tags.length; a++) {
-							tags = tags + ' ' + projects[i].tags[a]._id;
-							tagsNames = a > 0 ? tagsNames + ', ' + projects[i].tags[a].name : projects[i].tags[a].name;
+						for (var a = 0; a < newProjects[i].tags.length; a++) {
+							tags = tags + ' ' + newProjects[i].tags[a]._id;
+							tagsNames = a > 0 ? tagsNames + ', ' + newProjects[i].tags[a].name : newProjects[i].tags[a].name;
 						};
-						var newItem = jQuery('<li class="'+ tags +'" prioritize="'+ projects[i].prioritize + '"><a href="single-portfolio.html" class="isotope-alt-image"><img src="/images/uploads/' + projects[i]._id +'/' + projects[i].coverimage +'" alt="image" /><div><h4>' + projects[i].name + '<small>' + tagsNames + '</small></h4></div></a><div class="isotope-alt-details"><div><h4 class="remove-bottom">' + projects[i].name + '</h4><p class="meta">' + tagsNames + '</p></div></div></li>');
+						var newItem = jQuery('<li class="'+ tags +'" prioritize="'+ newProjects[i].prioritize + '"><a href="' + newProjects[i]._id +'" class="isotope-alt-image"><img src="/images/uploads/' + newProjects[i]._id +'/' + newProjects[i].coverimage +'" alt="image" /><div><h4>' + newProjects[i].name + '<small>' + tagsNames + '</small></h4></div></a><div class="isotope-alt-details"><div><h4 class="remove-bottom">' + newProjects[i].name + '</h4><p class="meta">' + tagsNames + '</p></div></div></li>');
 						newItem.find('.isotope-alt-image').hoverdir();
 						jQuery('.portfolio').isotope('insert', newItem).isotope('reLayout');
 					}
-					jQuery(window).trigger('resize');
 					var newPageNumber = pageNumber + 1;
 					if (newPageNumber > projectsReturn.pages) {
 						jQuery('#load-more').fadeOut();
@@ -77,6 +79,7 @@ jQuery(window).load(function($){
 						jQuery('#load-more').attr('pagenumber', newPageNumber);
 						jQuery('#load-more').html('Load More');
 					}
+					jQuery(window).trigger('resize');
 			}
 		});
 		return false;
@@ -169,6 +172,7 @@ jQuery(document).ready(function($){
 
 		$('.portfolio, #load-more').animate({ 'left' : '-1215px', 'opacity' : '0' }, function(){
 			const data = generateHTML(projectID);
+			console.log(projectID);
 			var filtered = jQuery(data);
 			$(".rslides", filtered).responsiveSlides({
 				speed: 500,

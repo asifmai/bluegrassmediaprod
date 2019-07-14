@@ -6,7 +6,7 @@ const Project = require('../models/project');
 const Helpitem = require('../models/helpitem');
 const mailer = require('../helpers/mailer');
 const projectsController = require('../controllers/projectscontroller');
-const projectsLimit = 8;
+const projectsLimit = 3;
 
 module.exports.index_get = async (req, res, next) => {
   const static = await StaticContent.find();

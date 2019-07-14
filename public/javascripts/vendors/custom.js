@@ -79,7 +79,9 @@ jQuery(window).load(function($){
 						jQuery('#load-more').attr('pagenumber', newPageNumber);
 						jQuery('#load-more').html('Load More');
 					}
-					jQuery(window).trigger('resize');
+					setTimeout(() => {
+						jQuery(window).trigger('resize');
+					}, 2000);
 			}
 		});
 		return false;

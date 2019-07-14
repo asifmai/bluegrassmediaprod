@@ -13,14 +13,14 @@ module.exports.index_get = async (req, res, next) => {
   const tags = await Tag.find();
   const helpitems = await Helpitem.find();
   // const projects = await Project.find().populate('tags').sort({prioritize: 'desc'}).exec();
-  const projectsReturn = await projectsController.getprojects(1, 3);
+  const projectsReturn = await projectsController.getprojects(1, projectsLimit);
   const metatags = await Metatag.find();
   res.render('index', {staticcontent: static[0], tags, projects: projectsReturn.projects, helpitems, metatags, pages: projectsReturn.pages});
 }
 
 module.exports.getprojects_get = async (req, res, next) => {
   const pageNo = Number(req.params.pagenumber);
-  const projectsReturn = await projectsController.getprojects(pageNo ,3);
+  const projectsReturn = await projectsController.getprojects(pageNo , projectsLimit);
   res.status = 200;
   res.json(projectsReturn);
 }

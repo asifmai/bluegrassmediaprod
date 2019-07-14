@@ -48,14 +48,16 @@ jQuery(window).load(function($){
 	
 	jQuery('#load-more').click(function(e){
 		e.preventDefault();
-		var url = jQuery(this).attr('href');
+		// var url = jQuery(this).attr('href');
+		var pageNumber = Number(jQuery(this).attr('pagenumber'));
 		jQuery(this).html('<img src="/images/loader.gif" />');
 		
 		jQuery.ajax({
 			type: "get",
-			url: "/getallprojects",
-			success: function (projects) {
-				console.log(projects);
+			url: "/getprojects/" + pageNumber,
+			success: function (projectsReturn) {
+				// console.log(projectsReturn);
+				var projects = projectsReturn.projects;
 					for (var i = 0; i < projects.length; i++) {
 						var tags = '';
 						var tagsNames = '';
@@ -68,8 +70,13 @@ jQuery(window).load(function($){
 						jQuery('.portfolio').isotope('insert', newItem).isotope('reLayout');
 					}
 					jQuery(window).trigger('resize');
-					jQuery('#load-more').fadeOut();
-				// });
+					var newPageNumber = pageNumber + 1;
+					if (newPageNumber > projectsReturn.pages) {
+						jQuery('#load-more').fadeOut();
+					} else {
+						jQuery('#load-more').attr('pagenumber', newPageNumber);
+						jQuery('#load-more').html('Load More');
+					}
 			}
 		});
 		return false;

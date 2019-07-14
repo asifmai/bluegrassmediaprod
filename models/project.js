@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 const ProjectSchema = new mongoose.Schema({
   createdAt: {
@@ -29,5 +30,7 @@ const ProjectSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+ProjectSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Project', ProjectSchema);

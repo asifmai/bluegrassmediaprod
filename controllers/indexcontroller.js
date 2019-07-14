@@ -5,22 +5,24 @@ const Metatag = require('../models/metatag');
 const Project = require('../models/project');
 const Helpitem = require('../models/helpitem');
 const mailer = require('../helpers/mailer');
+const projectsController = require('../controllers/projectscontroller');
+const projectsLimit = 8;
 
 module.exports.index_get = async (req, res, next) => {
   const static = await StaticContent.find();
   const tags = await Tag.find();
   const helpitems = await Helpitem.find();
-  const projects = await Project.find().populate('tags').sort({prioritize: 'desc'}).exec();
+  // const projects = await Project.find().populate('tags').sort({prioritize: 'desc'}).exec();
+  const projectsReturn = await projectsController.getprojects(1, 3);
   const metatags = await Metatag.find();
-  res.render('index', {staticcontent: static[0], tags, projects, helpitems, metatags});
+  res.render('index', {staticcontent: static[0], tags, projects: projectsReturn.projects, helpitems, metatags, pages: projectsReturn.pages});
 }
 
-module.exports.getallprojects_get = async (req, res, next) => {
-  const static = await StaticContent.find();
-  const tags = await Tag.find();
-  const projects = await Project.find().populate('tags').sort({prioritize: 'desc'}).skip(6).exec();
+module.exports.getprojects_get = async (req, res, next) => {
+  const pageNo = Number(req.params.pagenumber);
+  const projectsReturn = await projectsController.getprojects(pageNo ,3);
   res.status = 200;
-  res.json(projects);
+  res.json(projectsReturn);
 }
 
 module.exports.project_get = async (req, res, next) => {

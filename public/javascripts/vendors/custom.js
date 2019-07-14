@@ -58,8 +58,8 @@ jQuery(window).load(function($){
 			success: function (projectsReturn) {
 				// console.log(projectsReturn);
 				var newProjects = projectsReturn.projects;
-				console.log(newProjects);
-				console.log(projects);
+				// console.log(newProjects);
+				// console.log(projects);
 				projects = projects.concat(newProjects);
 					for (var i = 0; i < newProjects.length; i++) {
 						var tags = '';
@@ -172,7 +172,6 @@ jQuery(document).ready(function($){
 
 		$('.portfolio, #load-more').animate({ 'left' : '-1215px', 'opacity' : '0' }, function(){
 			const data = generateHTML(projectID);
-			console.log(projectID);
 			var filtered = jQuery(data);
 			$(".rslides", filtered).responsiveSlides({
 				speed: 500,

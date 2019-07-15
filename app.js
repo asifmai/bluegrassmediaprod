@@ -44,7 +44,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { dotfiles: 'allow' }));
 app.use(expressSanitizer());
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.png')));
 app.use(session({ secret: 'secret', resave: false, saveUninitialized: false }));

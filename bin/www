@@ -7,6 +7,20 @@
 var app = require('../app');
 var debug = require('debug')('bluegrassmedia:server');
 var http = require('http');
+let https = require('https');
+const fs = require('fs');
+
+
+// Certificate
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/bluegrass.media/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/bluegrass.media/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/bluegrass.media/chain.pem', 'utf8');
+
+const credentials = {
+	key: privateKey,
+	cert: certificate,
+	ca: ca
+};
 
 /**
  * Get port from environment and store in Express.
@@ -20,12 +34,14 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
+httpsServer.listen(443);
 server.on('error', onError);
 server.on('listening', onListening);
 

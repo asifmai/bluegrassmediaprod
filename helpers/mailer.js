@@ -20,7 +20,7 @@ module.exports.sendContactUsMail = async (contactUsForm) => {
   
       const mailOptions = {
         from: 'bluegrass.media <support@bluegrass.media>',
-        to: 'support@bluegrass.media',
+        to: 'bluegrassmedia@fastmail.com',
         subject: 'Contact Us',
         html: emailBody,
       };

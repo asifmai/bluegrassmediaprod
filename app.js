@@ -35,15 +35,15 @@ mongoose.connect(db, { useNewUrlParser: true })
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log('MongoDB Connect Error:', err));
 
-app.use((req, res, next) => {
-  if (req.secure) {
-    // request was via https, so do no special handling
-    next();
-  } else {
-    // request was via http, so redirect to https
-    res.redirect(`https://${req.headers.host}${req.url}`);
-  }
-});
+// app.use((req, res, next) => {
+//   if (req.secure) {
+//     // request was via https, so do no special handling
+//     next();
+//   } else {
+//     // request was via http, so redirect to https
+//     res.redirect(`https://${req.headers.host}${req.url}`);
+//   }
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
